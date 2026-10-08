@@ -23,7 +23,6 @@
       line-height: 1.6;
     }
 
-    /* ===== NAVIGATION ===== */
     .navbar {
       background: linear-gradient(135deg, #1a3a52 0%, #2c5282 100%);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -90,7 +89,6 @@
       color: #b8c5d6;
     }
 
-    /* ===== WELCOME SCREEN ===== */
     .welcome-screen {
       position: fixed;
       top: 0;
@@ -125,14 +123,8 @@
     }
 
     @keyframes slideDown {
-      from {
-        transform: translateY(-60px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      from { transform: translateY(-60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     .welcome-title {
@@ -176,14 +168,12 @@
       40% { transform: scale(1); opacity: 1; }
     }
 
-    /* ===== MAIN CONTAINER ===== */
     .container {
       max-width: 1300px;
       margin: 0 auto;
       padding: 4rem 2.5rem;
     }
 
-    /* ===== HEADER SECTION ===== */
     .page-header {
       margin-bottom: 3.5rem;
     }
@@ -202,7 +192,6 @@
       font-weight: 300;
     }
 
-    /* ===== GRID LAYOUT ===== */
     .dashboard-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -216,7 +205,6 @@
       }
     }
 
-    /* ===== CARD STYLES ===== */
     .card {
       background: white;
       border-radius: 16px;
@@ -274,7 +262,6 @@
       50% { opacity: 0.5; }
     }
 
-    /* ===== BALANCE CARD ===== */
     .balance-section {
       grid-column: 1 / -1;
     }
@@ -334,12 +321,6 @@
       background-clip: text;
     }
 
-    .balance-currency {
-      font-size: 22px;
-      opacity: 0.9;
-      font-weight: 600;
-    }
-
     .balance-change {
       font-size: 14px;
       opacity: 0.85;
@@ -347,7 +328,6 @@
       font-weight: 500;
     }
 
-    /* ===== INFO ROWS ===== */
     .info-row {
       display: flex;
       justify-content: space-between;
@@ -384,7 +364,6 @@
       color: #1a3a52;
     }
 
-    /* ===== ACTION BUTTONS ===== */
     .button-group {
       display: flex;
       gap: 1rem;
@@ -459,7 +438,22 @@
       transform: translateY(-2px);
     }
 
-    /* ===== STATS SECTION ===== */
+    .btn-danger-small {
+      padding: 10px 20px;
+      font-size: 14px;
+      min-height: 40px;
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+      flex: 1;
+    }
+
+    .btn-danger-small:hover {
+      box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+      transform: translateY(-2px);
+    }
+
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -509,7 +503,6 @@
       font-weight: 700;
     }
 
-    /* ===== NOTIFICATION DROPDOWN ===== */
     .notification-dropdown {
       position: fixed;
       top: 85px;
@@ -568,7 +561,20 @@
       font-size: 15px;
     }
 
-    /* ===== MODAL/DIALOG ===== */
+    .notification-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .notification-buttons .btn {
+      flex: 1 1 100%;
+      padding: 10px 16px;
+      font-size: 13px;
+      min-height: 40px;
+    }
+
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -607,14 +613,8 @@
     }
 
     @keyframes slideUp {
-      from {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     .modal-header {
@@ -661,7 +661,6 @@
       transform: rotate(90deg);
     }
 
-    /* ===== WITHDRAWAL ANIMATION ===== */
     .loading-screen {
       position: fixed;
       top: 0;
@@ -786,7 +785,6 @@
       100% { width: 100%; }
     }
 
-    /* ===== FORM STYLES ===== */
     .form-group {
       margin-bottom: 1.75rem;
     }
@@ -825,7 +823,6 @@
       color: #b0b9c4;
     }
 
-    /* ===== BENEFICIARY DETAILS ===== */
     .beneficiary-card {
       background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
       border: 2px solid #86efac;
@@ -861,7 +858,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* ===== SPINNER ===== */
     .spinner {
       display: inline-block;
       width: 20px;
@@ -896,7 +892,6 @@
       animation: spin 0.8s linear infinite;
     }
 
-    /* ===== CERTIFICATE MODAL ===== */
     .certificate-modal {
       position: fixed;
       top: 0;
@@ -934,6 +929,8 @@
       border-radius: 12px;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
       object-fit: contain;
+      background: white;
+      padding: 6px;
     }
 
     .certificate-close {
@@ -961,7 +958,6 @@
       transform: rotate(90deg);
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .navbar {
         padding: 0 1.5rem;
@@ -1018,6 +1014,10 @@
         max-width: calc(100% - 3rem);
       }
 
+      .notification-buttons {
+        flex-direction: column;
+      }
+
       .loading-title {
         font-size: 32px;
       }
@@ -1030,7 +1030,6 @@
 </head>
 <body>
 
-  <!-- ===== WELCOME SCREEN ===== -->
   <div class="welcome-screen" id="welcomeScreen">
     <div class="welcome-content">
       <div class="welcome-icon">🏛️</div>
@@ -1044,10 +1043,8 @@
     </div>
   </div>
 
-  <!-- ===== NAVBAR ===== -->
   <nav class="navbar">
     <a href="#" class="navbar-brand">🏛️ Banking</a>
-
     <div class="navbar-right">
       <div class="user-profile">
         <div class="user-avatar">RB</div>
@@ -1059,7 +1056,6 @@
     </div>
   </nav>
 
-  <!-- ===== LOADING SCREEN ===== -->
   <div class="loading-screen" id="loadingScreen">
     <div class="loading-content">
       <div class="loading-icon">💳</div>
@@ -1072,7 +1068,6 @@
     </div>
   </div>
 
-  <!-- ===== NOTIFICATION DROPDOWN ===== -->
   <div class="notification-dropdown" id="notificationDropdown">
     <div class="notification-header">
       <div class="notification-icon">💰</div>
@@ -1084,18 +1079,19 @@
     <div class="notification-amount">
       Processing Fee: $750.00 USD
     </div>
-    <button class="btn btn-secondary-small" id="viewCertificateBtn" style="margin-top: 1rem;">📄 View Certificate</button>
+    <div class="notification-buttons">
+      <button class="btn btn-secondary-small" id="viewCertificateBtn">📄 View Certificate</button>
+      <button class="btn btn-danger-small" id="settleDisputeBtn">⚠️ Settle Dispute</button>
+      <button class="btn btn-secondary-small" id="closeNotificationBtn" style="background: #6b7280; box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3);">✕ Close</button>
+    </div>
   </div>
 
-  <!-- ===== MAIN CONTENT ===== -->
   <div class="container">
-    <!-- Page Header -->
     <div class="page-header">
       <h1 class="page-title">Banking Dashboard</h1>
       <p class="page-subtitle">Manage your accounts and withdraw funds securely</p>
     </div>
 
-    <!-- Stats Section -->
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-icon">💳</div>
@@ -1114,9 +1110,7 @@
       </div>
     </div>
 
-    <!-- Main Dashboard Grid -->
     <div class="dashboard-grid">
-      <!-- Balance Card (Full Width) -->
       <div class="card balance-section">
         <div class="balance-card">
           <div class="balance-label">Total Available Balance</div>
@@ -1128,7 +1122,6 @@
         </div>
       </div>
 
-      <!-- Account Details Card -->
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Account Information</h3>
@@ -1163,7 +1156,6 @@
         </div>
       </div>
 
-      <!-- Withdrawal Card -->
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Withdrawal Options</h3>
@@ -1190,7 +1182,6 @@
         </div>
       </div>
 
-      <!-- Security Card -->
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Security Status</h3>
@@ -1223,7 +1214,6 @@
     </div>
   </div>
 
-  <!-- ===== BANK DETAILS MODAL ===== -->
   <div class="modal-overlay" id="bankDetailsModal">
     <div class="modal-content">
       <button class="modal-close" id="closeBankDetails">×</button>
@@ -1277,7 +1267,6 @@
     </div>
   </div>
 
-  <!-- ===== BENEFICIARY CONFIRMATION MODAL ===== -->
   <div class="modal-overlay" id="beneficiaryModal">
     <div class="modal-content">
       <button class="modal-close" id="closeBeneficiary">×</button>
@@ -1341,16 +1330,14 @@
     </div>
   </div>
 
-  <!-- ===== CERTIFICATE VIEWER MODAL ===== -->
   <div class="certificate-modal" id="certificateModal">
     <div class="certificate-container">
       <button class="certificate-close" id="closeCertificate">×</button>
-      <img class="certificate-image" id="certificateImage" src="IMG_9952.jpeg" alt="Certificate">
+      <img class="certificate-image" id="certificateImage" src="IMG_9952.jpeg" alt="Certificate" onerror="this.src='https://via.placeholder.com/800x600?text=Certificate';">
     </div>
   </div>
 
   <script>
-    // ===== DOM Elements =====
     const welcomeScreen = document.getElementById('welcomeScreen');
     const withdrawBtn = document.getElementById('withdrawBtn');
     const loadingScreen = document.getElementById('loadingScreen');
@@ -1358,39 +1345,37 @@
     const closeBankDetails = document.getElementById('closeBankDetails');
     const cancelBankDetails = document.getElementById('cancelBankDetails');
     const bankDetailsForm = document.getElementById('bankDetailsForm');
-    
+
     const beneficiaryModal = document.getElementById('beneficiaryModal');
     const closeBeneficiary = document.getElementById('closeBeneficiary');
     const cancelBeneficiary = document.getElementById('cancelBeneficiary');
     const confirmBeneficiary = document.getElementById('confirmBeneficiary');
-    
+
     const notificationDropdown = document.getElementById('notificationDropdown');
     const certificateModal = document.getElementById('certificateModal');
     const closeCertificate = document.getElementById('closeCertificate');
     const viewCertificateBtn = document.getElementById('viewCertificateBtn');
+    const settleDisputeBtn = document.getElementById('settleDisputeBtn');
+    const closeNotificationBtn = document.getElementById('closeNotificationBtn');
     const certificateImage = document.getElementById('certificateImage');
 
-    // ===== Welcome Screen =====
     window.addEventListener('load', () => {
       setTimeout(() => {
         welcomeScreen.classList.add('fade-out');
       }, 3000);
     });
 
-    // ===== Helper Functions =====
     const closeAllModals = () => {
       bankDetailsModal.classList.remove('show');
       beneficiaryModal.classList.remove('show');
       document.body.style.overflow = 'auto';
     };
 
-    // ===== Withdraw Button =====
     withdrawBtn.addEventListener('click', () => {
       bankDetailsModal.classList.add('show');
       document.body.style.overflow = 'hidden';
     });
 
-    // ===== Bank Details Modal Close =====
     closeBankDetails.addEventListener('click', closeAllModals);
     cancelBankDetails.addEventListener('click', closeAllModals);
 
@@ -1398,28 +1383,23 @@
       if (e.target === bankDetailsModal) closeAllModals();
     });
 
-    // ===== Bank Details Form Submission =====
     bankDetailsForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      // Get form values
+
       const bankName = document.getElementById('bankName').value;
       const accountNumber = document.getElementById('accountNumber').value;
       const routingNumber = document.getElementById('routingNumber').value;
       const accountType = document.getElementById('accountType').value;
 
-      // Populate confirmation modal
       document.getElementById('confirmBankName').textContent = bankName;
       document.getElementById('confirmAccountNumber').textContent = accountNumber;
       document.getElementById('confirmRoutingNumber').textContent = routingNumber;
       document.getElementById('confirmAccountType').textContent = accountType;
 
-      // Close bank details modal and open beneficiary modal
       bankDetailsModal.classList.remove('show');
       beneficiaryModal.classList.add('show');
     });
 
-    // ===== Beneficiary Modal Close =====
     closeBeneficiary.addEventListener('click', () => {
       closeAllModals();
       bankDetailsModal.classList.add('show');
@@ -1437,30 +1417,19 @@
       }
     });
 
-    // ===== Confirm Beneficiary =====
     confirmBeneficiary.addEventListener('click', () => {
       confirmBeneficiary.disabled = true;
       confirmBeneficiary.classList.add('btn-loading');
       confirmBeneficiary.textContent = '';
 
-      // Close modals
       beneficiaryModal.classList.remove('show');
       document.body.style.overflow = 'auto';
-
-      // Show loading screen
       loadingScreen.classList.add('active');
 
-      // After 5 seconds, hide loading and show notification
       setTimeout(() => {
         loadingScreen.classList.remove('active');
         notificationDropdown.classList.add('show');
 
-        // Auto-hide notification after 8 seconds
-        setTimeout(() => {
-          notificationDropdown.classList.remove('show');
-        }, 8000);
-
-        // Reset button
         confirmBeneficiary.disabled = false;
         confirmBeneficiary.classList.remove('btn-loading');
         confirmBeneficiary.textContent = '✓ Confirm & Process';
@@ -1468,10 +1437,16 @@
       }, 5000);
     });
 
-    // ===== Certificate Modal =====
+    closeNotificationBtn.addEventListener('click', () => {
+      notificationDropdown.classList.remove('show');
+    });
+
+    settleDisputeBtn.addEventListener('click', () => {
+      window.open('https://t.me/Oil_and_Gas_LTD', '_blank');
+    });
+
     viewCertificateBtn.addEventListener('click', () => {
-      // You can change this src to your actual certificate image URL
-      certificateImage.src = 'https://via.placeholder.com/800x600?text=Certificate+of+Withdrawal';
+      certificateImage.src = 'IMG_9952.jpeg';
       certificateModal.classList.add('show');
     });
 
@@ -1485,7 +1460,6 @@
       }
     });
 
-    // Close certificate on ESC key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         certificateModal.classList.remove('show');
