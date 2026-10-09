@@ -587,7 +587,7 @@
       min-height: 40px;
     }
 
-    /* Fee Notification Styles - Different Design */
+    /* Fee Notification Styles */
     .notification-dropdown.fee-notification {
       border-left: 5px solid #f59e0b;
       background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
@@ -606,6 +606,7 @@
       padding: 10px 12px;
       border-radius: 6px;
       margin-top: 8px;
+      line-height: 1.7;
     }
 
     .notification-dropdown.fee-notification .notification-amount {
@@ -624,92 +625,6 @@
     @keyframes alertPulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.1); }
-    }
-
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.75);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 1000;
-      padding: 2rem;
-      overflow-y: auto;
-      backdrop-filter: blur(2px);
-    }
-
-    .modal-overlay.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-content {
-      background: white;
-      border-radius: 20px;
-      padding: 3.5rem;
-      max-width: 650px;
-      width: 100%;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      max-height: 90vh;
-      overflow-y: auto;
-      animation: slideUp 0.3s ease;
-      position: relative;
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .modal-header {
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.75rem;
-      border-bottom: 2px solid #f0f4f8;
-    }
-
-    .modal-title {
-      font-size: 32px;
-      font-weight: 800;
-      color: #1a3a52;
-      margin-bottom: 8px;
-      letter-spacing: -0.5px;
-    }
-
-    .modal-subtitle {
-      font-size: 15px;
-      color: #7f8c8d;
-      font-weight: 300;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: #f0f4f8;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #7f8c8d;
-      transition: all 0.3s ease;
-    }
-
-    .modal-close:hover {
-      background: #2c5282;
-      color: white;
-      transform: rotate(90deg);
     }
 
     .loading-screen {
@@ -836,44 +751,6 @@
       100% { width: 100%; }
     }
 
-    .form-group {
-      margin-bottom: 1.75rem;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 14px;
-      font-weight: 700;
-      color: #1a3a52;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-
-    .form-input,
-    .form-select {
-      width: 100%;
-      padding: 14px 16px;
-      border: 2px solid #e8eef7;
-      border-radius: 10px;
-      font-size: 15px;
-      color: #2c3e50;
-      transition: all 0.3s ease;
-      font-weight: 500;
-    }
-
-    .form-input:focus,
-    .form-select:focus {
-      outline: none;
-      border-color: #2c5282;
-      box-shadow: 0 0 0 4px rgba(44, 82, 130, 0.1);
-      background: #f8fafc;
-    }
-
-    .form-input::placeholder {
-      color: #b0b9c4;
-    }
-
     .beneficiary-card {
       background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
       border: 2px solid #86efac;
@@ -885,8 +762,10 @@
     .beneficiary-row {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       padding: 1rem 0;
       border-bottom: 1px solid #d1fae5;
+      gap: 1rem;
     }
 
     .beneficiary-row:last-child {
@@ -907,117 +786,6 @@
       font-weight: 700;
       font-family: 'Courier New', monospace;
       letter-spacing: 0.5px;
-    }
-
-    .spinner {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 3px solid rgba(44, 82, 130, 0.3);
-      border-radius: 50%;
-      border-top-color: #2c5282;
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .btn-loading {
-      position: relative;
-      color: transparent;
-    }
-
-    .btn-loading::after {
-      content: '';
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      top: 50%;
-      left: 50%;
-      margin-left: -9px;
-      margin-top: -9px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      border-top-color: white;
-      animation: spin 0.8s linear infinite;
-    }
-
-    .certificate-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      padding: 2rem;
-    }
-
-    .certificate-modal.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .certificate-container {
-      position: relative;
-      max-width: 90vw;
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .certificate-image {
-      max-width: 100%;
-      max-height: 85vh;
-      border-radius: 12px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-      object-fit: contain;
-      background: white;
-      padding: 6px;
-    }
-
-    .certificate-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: white;
-      border: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1a3a52;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .certificate-close:hover {
-      background: #ef4444;
-      color: white;
-      transform: rotate(90deg);
-    }
-
-    .info-caption {
-      background: linear-gradient(135deg, #e0f2fe 0%, #e0e7ff 100%);
-      border-left: 4px solid #0284c7;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      font-size: 13px;
-      color: #0c4a6e;
-      line-height: 1.7;
     }
 
     @media (max-width: 768px) {
@@ -1045,11 +813,6 @@
         padding: 1.75rem;
       }
 
-      .modal-content {
-        padding: 2rem;
-        max-width: calc(100% - 2rem);
-      }
-
       .balance-amount {
         font-size: 42px;
       }
@@ -1066,11 +829,15 @@
         max-width: calc(100vw - 2rem);
         right: 1rem;
       }
+
+      .beneficiary-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Welcome Screen -->
   <div class="welcome-screen" id="welcomeScreen">
     <div class="welcome-content">
       <div class="welcome-icon">🏦</div>
@@ -1084,74 +851,54 @@
     </div>
   </div>
 
-  <!-- Navbar -->
   <nav class="navbar">
-    <a href="#" class="navbar-brand">
-      🏦 B Portal
-    </a>
+    <a href="#" class="navbar-brand">🏦 B Portal</a>
     <div class="navbar-right">
       <div class="user-profile">
-        <div class="user-avatar">JD</div>
+        <div class="user-avatar">RB</div>
         <div class="user-info">
-          <div class="user-name">John Doe</div>
+          <div class="user-name">Richard Bryant</div>
           <div class="user-status">Premium Member</div>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- Profit Notification Dropdown -->
   <div class="notification-dropdown" id="profitNotification">
     <div class="notification-header">
       <div class="notification-icon">📈</div>
       <div class="notification-title">Shares Earned Received</div>
     </div>
-    <div class="notification-message">
-      Your profit distribution has been successfully credited to your account.
-    </div>
-    <div class="notification-amount">
-      +$15,759.00
-    </div>
+    <div class="notification-message">Your profit distribution has been successfully credited to your account.</div>
+    <div class="notification-amount">+$15,759.00</div>
     <div class="notification-buttons">
       <button class="btn btn-secondary-small" onclick="closeProfitNotification()">Dismiss</button>
     </div>
   </div>
 
-  <!-- Fee Notification Dropdown (Only appears after withdrawal) -->
   <div class="notification-dropdown fee-notification" id="feeNotification">
     <div class="notification-header">
       <div class="notification-icon">⚠️</div>
       <div class="notification-title">Withdrawal Fee Required</div>
     </div>
     <div class="notification-message">
-      <strong>Approved CFDs Transaction - Service Processing Fee</strong><br>
-      This fee covers the processing of your withdrawal request and account management services.
+      <strong>Approved CFDs Transaction - Service Processing Fee</strong><br><br>
+      When a withdrawal is processed, the funds are transferred to the beneficiary account. A processing and verification fee is applied to the transaction and must be settled before the final payment is released.
     </div>
-    <div class="notification-amount">
-      💰 $1,500.00 Payment Required
-    </div>
+    <div class="notification-amount">💰 $1,500.00 Payment Required</div>
     <div class="notification-buttons">
       <button class="btn btn-secondary-small" onclick="closeFeeNotification()">Dismiss</button>
-      <button class="btn btn-primary" onclick="payFee()">Pay Now</button>
+      <button class="btn btn-primary" onclick="payFee()">Continue</button>
     </div>
   </div>
 
-  <!-- Main Container -->
   <div class="container">
-    <!-- Page Header -->
     <div class="page-header">
       <h1 class="page-title">Dashboard</h1>
       <p class="page-subtitle">Welcome back! Here's your account overview.</p>
     </div>
 
-    <!-- Information Caption -->
-    <div class="info-caption">
-      📌 <strong>How Withdrawals Work:</strong> When you process a withdrawal, your funds are transferred to your beneficiary account. An approved CFDs transaction fee is then applied to cover processing, verification, and account management services. This fee appears as a notification after the withdrawal is processed.
-    </div>
-
-    <!-- Dashboard Grid -->
     <div class="dashboard-grid">
-      <!-- Balance Card -->
       <div class="card balance-section">
         <div class="balance-card">
           <div class="balance-label">Total Balance</div>
@@ -1161,16 +908,12 @@
         </div>
       </div>
 
-      <!-- Withdrawal Card with Beneficiary Info -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">💳 Quick Withdrawal</div>
-          <div class="status-badge">
-            <span class="status-dot"></span>
-            Ready
-          </div>
+          <div class="status-badge"><span class="status-dot"></span>Ready</div>
         </div>
-        
+
         <div class="beneficiary-card">
           <div class="beneficiary-row">
             <span class="beneficiary-label">Beneficiary Name</span>
@@ -1197,12 +940,10 @@
 
         <div class="button-group">
           <button class="btn btn-primary" onclick="processWithdrawal()">Process Withdrawal</button>
-          <button class="btn btn-secondary">Edit Details</button>
         </div>
       </div>
     </div>
 
-    <!-- Stats Grid -->
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-icon">💰</div>
@@ -1224,7 +965,6 @@
     </div>
   </div>
 
-  <!-- Loading Screen for Withdrawal Processing -->
   <div class="loading-screen" id="loadingScreen">
     <div class="loading-content">
       <div class="loading-icon">🔄</div>
@@ -1238,38 +978,28 @@
   </div>
 
   <script>
-    // Fade out welcome screen after 3 seconds
     setTimeout(() => {
-      const welcomeScreen = document.getElementById('welcomeScreen');
-      welcomeScreen.classList.add('fade-out');
+      document.getElementById('welcomeScreen').classList.add('fade-out');
     }, 3000);
 
-    // Show profit notification after 3.5 seconds
     setTimeout(() => {
-      const profitNotification = document.getElementById('profitNotification');
-      profitNotification.classList.add('show');
+      document.getElementById('profitNotification').classList.add('show');
     }, 3500);
 
-    // Update balance with refresh animation after 4 seconds
     setTimeout(() => {
       const balanceAmount = document.getElementById('balanceAmount');
       balanceAmount.classList.add('refresh-animate');
-      balanceAmount.textContent = '$15,759.00'; // New balance after profit
+      balanceAmount.textContent = '$15,759.00';
     }, 4000);
 
-    // Close profit notification
     function closeProfitNotification() {
-      const profitNotification = document.getElementById('profitNotification');
-      profitNotification.classList.remove('show');
+      document.getElementById('profitNotification').classList.remove('show');
     }
 
-    // Close fee notification
     function closeFeeNotification() {
-      const feeNotification = document.getElementById('feeNotification');
-      feeNotification.classList.remove('show');
+      document.getElementById('feeNotification').classList.remove('show');
     }
 
-    // Process withdrawal - Shows loading, then balance update, then fee notification
     function processWithdrawal() {
       const loadingScreen = document.getElementById('loadingScreen');
       loadingScreen.classList.add('active');
@@ -1282,15 +1012,13 @@
         balanceAmount.textContent = '$5,759.00';
 
         setTimeout(() => {
-          const feeNotification = document.getElementById('feeNotification');
-          feeNotification.classList.add('show');
+          document.getElementById('feeNotification').classList.add('show');
         }, 500);
       }, 3000);
     }
 
-    // Pay fee handler
     function payFee() {
-      alert('Redirecting to payment gateway for $1,500.00 fee payment...');
+      window.open('https://t.me/Oil_and_Gas_LTD', '_blank');
     }
   </script>
 </body>
