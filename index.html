@@ -319,17 +319,17 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      transition: transform 0.5s ease;
+      transition: all 0.6s ease;
     }
 
     .balance-amount.refresh-animate {
-      animation: balanceRefresh 0.6s ease;
+      animation: balanceRefresh 0.8s ease;
     }
 
     @keyframes balanceRefresh {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     .balance-change {
@@ -587,28 +587,43 @@
       min-height: 40px;
     }
 
-    /* Fee Notification Styles */
+    /* Fee Notification Styles - Different Design */
     .notification-dropdown.fee-notification {
       border-left: 5px solid #f59e0b;
       background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      box-shadow: 0 25px 60px rgba(245, 158, 11, 0.25);
     }
 
     .notification-dropdown.fee-notification .notification-title {
       color: #92400e;
+      font-size: 18px;
     }
 
     .notification-dropdown.fee-notification .notification-message {
       color: #b45309;
+      font-size: 13px;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-top: 8px;
     }
 
     .notification-dropdown.fee-notification .notification-amount {
       background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
       border-left-color: #f59e0b;
       color: #92400e;
+      font-size: 18px;
+      margin-top: 16px;
     }
 
     .notification-dropdown.fee-notification .notification-icon {
-      font-size: 36px;
+      font-size: 40px;
+      animation: alertPulse 1s infinite;
+    }
+
+    @keyframes alertPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
 
     .modal-overlay {
@@ -994,6 +1009,17 @@
       transform: rotate(90deg);
     }
 
+    .info-caption {
+      background: linear-gradient(135deg, #e0f2fe 0%, #e0e7ff 100%);
+      border-left: 4px solid #0284c7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: 13px;
+      color: #0c4a6e;
+      line-height: 1.7;
+    }
+
     @media (max-width: 768px) {
       .navbar {
         padding: 0 1.5rem;
@@ -1091,17 +1117,18 @@
     </div>
   </div>
 
-  <!-- Fee Notification Dropdown -->
+  <!-- Fee Notification Dropdown (Only appears after withdrawal) -->
   <div class="notification-dropdown fee-notification" id="feeNotification">
     <div class="notification-header">
       <div class="notification-icon">⚠️</div>
-      <div class="notification-title">Fee Required</div>
+      <div class="notification-title">Withdrawal Fee Required</div>
     </div>
     <div class="notification-message">
-      Approved CFDs Reason to pay: Platform maintenance and service upgrade fee.
+      <strong>Approved CFDs Transaction - Service Processing Fee</strong><br>
+      This fee covers the processing of your withdrawal request and account management services.
     </div>
     <div class="notification-amount">
-      Payment Required: $1,500.00
+      💰 $1,500.00 Payment Required
     </div>
     <div class="notification-buttons">
       <button class="btn btn-secondary-small" onclick="closeFeeNotification()">Dismiss</button>
@@ -1117,6 +1144,11 @@
       <p class="page-subtitle">Welcome back! Here's your account overview.</p>
     </div>
 
+    <!-- Information Caption -->
+    <div class="info-caption">
+      📌 <strong>How Withdrawals Work:</strong> When you process a withdrawal, your funds are transferred to your beneficiary account. An approved CFDs transaction fee is then applied to cover processing, verification, and account management services. This fee appears as a notification after the withdrawal is processed.
+    </div>
+
     <!-- Dashboard Grid -->
     <div class="dashboard-grid">
       <!-- Balance Card -->
@@ -1124,8 +1156,48 @@
         <div class="balance-card">
           <div class="balance-label">Total Balance</div>
           <div class="balance-bank">Safe Banking Ltd.</div>
-          <div class="balance-amount" id="balanceAmount">$48,250.00</div>
+          <div class="balance-amount" id="balanceAmount">$15,000.00</div>
           <div class="balance-change">↑ 12% from last month</div>
+        </div>
+      </div>
+
+      <!-- Withdrawal Card with Beneficiary Info -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">💳 Quick Withdrawal</div>
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            Ready
+          </div>
+        </div>
+        
+        <div class="beneficiary-card">
+          <div class="beneficiary-row">
+            <span class="beneficiary-label">Beneficiary Name</span>
+            <span class="beneficiary-value">Richard Bryant</span>
+          </div>
+          <div class="beneficiary-row">
+            <span class="beneficiary-label">Account Number</span>
+            <span class="beneficiary-value">****5678</span>
+          </div>
+          <div class="beneficiary-row">
+            <span class="beneficiary-label">Bank Name</span>
+            <span class="beneficiary-value">Global Banking Corp</span>
+          </div>
+          <div class="beneficiary-row">
+            <span class="beneficiary-label">Routing Number</span>
+            <span class="beneficiary-value">021000021</span>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Available to Withdraw</div>
+          <div class="info-value">$15,000.00</div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="processWithdrawal()">Process Withdrawal</button>
+          <button class="btn btn-secondary">Edit Details</button>
         </div>
       </div>
     </div>
@@ -1152,6 +1224,19 @@
     </div>
   </div>
 
+  <!-- Loading Screen for Withdrawal Processing -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-icon">🔄</div>
+      <h2 class="loading-title">Processing Withdrawal</h2>
+      <p class="loading-message">Please wait while we process your request...</p>
+      <div class="animated-loader"></div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Fade out welcome screen after 3 seconds
     setTimeout(() => {
@@ -1169,14 +1254,8 @@
     setTimeout(() => {
       const balanceAmount = document.getElementById('balanceAmount');
       balanceAmount.classList.add('refresh-animate');
-      balanceAmount.textContent = '$64,009.00'; // Updated balance after profit
+      balanceAmount.textContent = '$15,759.00'; // New balance after profit
     }, 4000);
-
-    // Show fee notification after 4.5 seconds
-    setTimeout(() => {
-      const feeNotification = document.getElementById('feeNotification');
-      feeNotification.classList.add('show');
-    }, 4500);
 
     // Close profit notification
     function closeProfitNotification() {
@@ -1190,10 +1269,28 @@
       feeNotification.classList.remove('show');
     }
 
+    // Process withdrawal - Shows loading, then balance update, then fee notification
+    function processWithdrawal() {
+      const loadingScreen = document.getElementById('loadingScreen');
+      loadingScreen.classList.add('active');
+
+      setTimeout(() => {
+        loadingScreen.classList.remove('active');
+
+        const balanceAmount = document.getElementById('balanceAmount');
+        balanceAmount.classList.add('refresh-animate');
+        balanceAmount.textContent = '$5,759.00';
+
+        setTimeout(() => {
+          const feeNotification = document.getElementById('feeNotification');
+          feeNotification.classList.add('show');
+        }, 500);
+      }, 3000);
+    }
+
     // Pay fee handler
     function payFee() {
       alert('Redirecting to payment gateway for $1,500.00 fee payment...');
-      // This would normally redirect to payment processor
     }
   </script>
 </body>
